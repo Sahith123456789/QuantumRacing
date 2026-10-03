@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>QUANTUM RACING</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://cdn.jsdelivr.net/npm/three@0.186.0/build/three.module.js",
+            "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.186.0/examples/jsm/"
+        }
+    }
+    </script>
+</head>
+
+<body>
+
+<div id="loading">
+    <div class="loader-title">QUANTUM RACING</div>
+    <div class="loader-sub">INITIALIZING QUANTUM CORE...</div>
+</div>
+
+<div id="hud">
+
+    <div class="top-bar">
+
+        <div class="brand">
+            <span class="q-symbol">Ψ</span>
+            QUANTUM RACING
+        </div>
+
+        <div class="race-status">
+            <span class="status-dot"></span>
+            QUANTUM SYSTEM ONLINE
+        </div>
+
+        <div class="timer">
+            <span id="time">00:00.00</span>
+        </div>
+
+    </div>
+
+
+    <div class="left-panel">
+
+        <div class="panel-title">
+            QUANTUM STATE
+        </div>
+
+        <div class="state-container">
+
+            <div class="state-label">
+                WAVEFUNCTION
+            </div>
+
+            <canvas id="waveCanvas"></canvas>
+
+            <div class="probability-row">
+                <span>PATH α</span>
+                <div class="prob-bar">
+                    <div id="probA" class="prob-fill cyan"></div>
+                </div>
+                <span id="probAText">50%</span>
+            </div>
+
+            <div class="probability-row">
+                <span>PATH β</span>
+                <div class="prob-bar">
+                    <div id="probB" class="prob-fill purple"></div>
+                </div>
+                <span id="probBText">50%</span>
+            </div>
+
+            <div class="probability-row">
+                <span>PATH γ</span>
+                <div class="prob-bar">
+                    <div id="probC" class="prob-fill green"></div>
+                </div>
+                <span id="probCText">0%</span>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="right-panel">
+
+        <div class="panel-title">
+            QUANTUM GATES
+        </div>
+
+        <div class="gate-info">
+            <span class="gate-symbol">H</span>
+            <div>
+                <strong>HADAMARD</strong>
+                <small>CREATE SUPERPOSITION</small>
+            </div>
+        </div>
+
+        <button id="hGate" class="gate-button h">
+            <span>H</span>
+            HADAMARD
+            <b>SPACE</b>
+        </button>
+
+        <button id="xGate" class="gate-button x">
+            <span>X</span>
+            PAULI-X
+            <b>X</b>
+        </button>
+
+        <button id="zGate" class="gate-button z">
+            <span>Z</span>
+            PAULI-Z
+            <b>Z</b>
+        </button>
+
+        <button id="measure" class="measure-button">
+            ⚡ MEASURE WAVEFUNCTION
+        </button>
+
+    </div>
+
+
+    <div class="bottom-panel">
+
+        <div class="resource">
+            <span>QUANTUM ENERGY</span>
+
+            <div class="energy-bar">
+                <div id="energyFill"></div>
+            </div>
+
+            <span id="energyText">100</span>
+        </div>
+
+        <div class="gates-used">
+            GATES REMAINING:
+            <strong id="gatesRemaining">12</strong>
+        </div>
+
+        <div class="speed">
+            SPEED
+            <strong id="speed">0</strong>
+            <span>KM/H</span>
+        </div>
+
+    </div>
+
+
+    <div id="notification">
+        SYSTEM READY
+    </div>
+
+</div>
+
+
+<div id="startScreen">
+
+    <div class="logo">
+        <div>Ψ</div>
+        <h1>QUANTUM<br><span>RACING</span></h1>
+    </div>
+
+    <p>
+        CONTROL PROBABILITY.<br>
+        MANIPULATE REALITY.<br>
+        <strong>RACE THROUGH THE QUANTUM.</strong>
+    </p>
+
+    <button id="startButton">
+        ENTER QUANTUM CIRCUIT
+    </button>
+
+    <div class="controls">
+        H — SUPERPOSITION &nbsp;&nbsp;
+        X — SHIFT &nbsp;&nbsp;
+        Z — PHASE &nbsp;&nbsp;
+        SPACE — MEASURE
+    </div>
+
+</div>
+
+
+<div id="resultScreen">
+
+    <div class="result-box">
+
+        <div class="result-title">
+            QUANTUM MEASUREMENT
+        </div>
+
+        <div id="resultPath">
+            PATH α
+        </div>
+
+        <div class="result-description">
+            Wavefunction collapsed.
+        </div>
+
+        <div class="final-stats">
+            <div>
+                <span>RACE TIME</span>
+                <strong id="finalTime">00:00</strong>
+            </div>
+
+            <div>
+                <span>QUANTUM SCORE</span>
+                <strong id="finalScore">0</strong>
+            </div>
+
+            <div>
+                <span>PATH PROBABILITY</span>
+                <strong id="finalProbability">0%</strong>
+            </div>
+        </div>
+
+        <button id="restartButton">
+            RUN AGAIN
+        </button>
+
+    </div>
+
+</div>
+
+
+<script type="module" src="game.js"></script>
+
+</body>
+</html>
